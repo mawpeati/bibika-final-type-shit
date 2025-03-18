@@ -1,0 +1,38 @@
+.detail-container {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+  
+  .detail-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .detail-media {
+    object-fit: cover;
+  }
+  
+  .detail-content {
+    padding: 24px;
+  }
+  
+  .detail-title {
+    color: #333;
+  }
+  
+  .detail-description {
+    margin-bottom: 16px;
+  }
+  
+  .detail-category {
+    margin-bottom: 16px;
+  }
+  
+  .detail-price {
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .detail-button {
+    border-radius: 8px;
+  }

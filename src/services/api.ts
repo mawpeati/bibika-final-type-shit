@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Category, Listing } from '../types';
 
 const BASE_URL = 'https://lalafo-sardar-default-rtdb.europe-west1.firebasedatabase.app';
 
@@ -35,7 +36,7 @@ export const getListings = async (): Promise<Listing[]> => {
     title: value.title,
     description: value.description,
     price: value.price,
-    categoryId: value.categoryId,
+    categoryName: value.categoryName,
     imageUrl: value.imageUrl,
   }));
 };

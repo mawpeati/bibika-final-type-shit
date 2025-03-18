@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { Listing } from '../types';
+import { Listing } from '../services/api';
+import './ListingCard.css';
 
 interface ListingCardProps {
   listing: Listing;
@@ -9,24 +10,34 @@ interface ListingCardProps {
 
 const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
   return (
-    <Card sx={{ maxWidth: 345, margin: 2 }}>
+    <Card className="listing-card">
       <CardMedia
         component="img"
-        height="140"
+        height="160"
         image={listing.imageUrl}
         alt={listing.title}
+        className="listing-card-media"
       />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+      <CardContent className="listing-card-content">
+        <Typography gutterBottom variant="h6" component="div">
           {listing.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {listing.description}
+        <Typography variant="body2" color="text.secondary" className="listing-card-description">
+          {listing.description.length > 50 ? `${listing.description.slice(0, 50)}...` : listing.description}
         </Typography>
-        <Typography variant="h6" color="text.primary">
+        <Typography variant="body2" color="text.secondary">
+          Категория: {listing.categoryName}
+        </Typography>
+        <Typography variant="h6" color="primary">
           ${listing.price}
         </Typography>
-        <Button component={Link} to={`/listing/${listing.id}`} variant="contained" sx={{ mt: 2 }}>
+        <Button
+          variant="contained"
+          color="primary"
+          component={Link}
+          to={`/listing/${listing.id}`}
+          className="listing-card-button"
+        >
           Подробнее
         </Button>
       </CardContent>

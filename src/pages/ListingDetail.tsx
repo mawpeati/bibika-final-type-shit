@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Typography, Card, CardContent, CardMedia } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { Container, Typography, Card, CardContent, CardMedia, Button } from '@mui/material';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getListings, Listing } from '../services/api';
+import './ListingDetail.css';
 
 const ListingDetail: React.FC = () => {
   const { listingId } = useParams<{ listingId: string }>();
+  const navigate = useNavigate();
   const [listing, setListing] = useState<Listing | null>(null);
 
   useEffect(() => {
@@ -23,24 +25,36 @@ const ListingDetail: React.FC = () => {
   if (!listing) return <Typography>Объявление не найдено</Typography>;
 
   return (
-    <Container sx={{ mt: 4 }}>
-      <Card>
+    <Container maxWidth="md" className="detail-container">
+      <Card className="detail-card">
         <CardMedia
           component="img"
-          height="300"
+          height="400"
           image={listing.imageUrl}
           alt={listing.title}
+          className="detail-media"
         />
-        <CardContent>
-          <Typography variant="h4" gutterBottom>
+        <CardContent className="detail-content">
+          <Typography variant="h4" gutterBottom className="detail-title">
             {listing.title}
           </Typography>
-          <Typography variant="body1" color="text.secondary" paragraph>
+          <Typography variant="body1" color="text.secondary" className="detail-description">
             {listing.description}
           </Typography>
-          <Typography variant="h5" color="text.primary">
+          <Typography variant="h6" color="text.secondary" className="detail-category">
+            Категория: {listing.categoryName}
+          </Typography>
+          <Typography variant="h5" color="primary" className="detail-price">
             ${listing.price}
           </Typography>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={() => navigate(`/edit/${listingId}`)}
+            className="detail-button"
+          >
+            Редактировать
+          </Button>
         </CardContent>
       </Card>
     </Container>

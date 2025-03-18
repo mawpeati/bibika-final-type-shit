@@ -1,0 +1,28 @@
+.edit-container {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+  
+  .edit-paper {
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-title {
+    color: #333;
+    margin-bottom: 24px;
+  }
+  
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .edit-button {
+    padding: 12px 0;
+    font-size: 1rem;
+    border-radius: 8px;
+    margin-top: 24px;
+  }

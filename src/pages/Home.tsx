@@ -1,7 +1,10 @@
+
+
 import React, { useEffect, useState } from 'react';
 import { Container, Typography, Grid } from '@mui/material';
 import { getListings, Listing } from '../services/api';
 import ListingCard from '../components/ListingCard';
+import './Home.css';
 
 const Home: React.FC = () => {
   const [listings, setListings] = useState<Listing[]>([]);
@@ -19,11 +22,11 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <Container>
-      <Typography variant="h4" gutterBottom sx={{ mt: 4 }}>
+    <Container maxWidth="lg" className="home-container">
+      <Typography variant="h4" gutterBottom className="home-title">
         Все объявления
       </Typography>
-      <Grid container spacing={2}>
+      <Grid container spacing={3}>
         {listings.map((listing) => (
           <Grid item xs={12} sm={6} md={4} key={listing.id}>
             <ListingCard listing={listing} />

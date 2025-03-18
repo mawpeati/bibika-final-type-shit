@@ -1,61 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Container, Typography, TextField, Button, Paper } from '@mui/material';
-import { useParams, useNavigate } from 'react-router-dom';
-import { getListings, updateListing, Listing } from '../services/api';
-import './EditListing.css';
+import { useNavigate } from 'react-router-dom';
+import { createListing } from '../services/api';
+import './CreateListing.css';
 
-const EditListing: React.FC = () => {
-  const { listingId } = useParams<{ listingId: string }>();
+const CreateListing: React.FC = () => {
   const navigate = useNavigate();
-  const [form, setForm] = useState<Listing | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const allListings = await getListings();
-        const listing = allListings.find((l) => l.id === listingId);
-        setForm(listing || null);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, [listingId]);
+  const [form, setForm] = useState({
+    title: '',
+    description: '',
+    price: 0,
+    categoryName: '',
+    imageUrl: 'https://mysleepyhead.com/media/catalog/product/4/t/4thaug_2ndhalf5934_green.jpg',
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setForm((prev: any) =>
-      prev ? { ...prev, [name]: name === 'price' ? Number(value) : value } : null
-    );
+    setForm((prev) => ({
+      ...prev,
+      [name]: name === 'price' ? Number(value) : value,
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form || !listingId) return;
+    if (!form.categoryName) {
+      alert('Пожалуйста, укажите категорию');
+      return;
+    }
     try {
-      await updateListing(listingId, {
-        title: form.title,
-        description: form.description,
-        price: form.price,
-        categoryName: form.categoryName,
-        imageUrl: form.imageUrl,
-      });
-      navigate(`/listing/${listingId}`);
+      await createListing(form);
+      navigate('/');
     } catch (error) {
-      console.error('Error updating listing:', error);
-      alert('Ошибка при обновлении объявления.');
+      console.error('Error creating listing:', error);
+      alert('Ошибка при создании объявления.');
     }
   };
 
-  if (!form) return <Typography>Объявление не найдено</Typography>;
-
   return (
-    <Container maxWidth="sm" className="edit-container">
-      <Paper className="edit-paper">
-        <Typography variant="h4" gutterBottom className="edit-title">
-          Редактировать объявление
+    <Container maxWidth="sm" className="create-container">
+      <Paper className="create-paper">
+        <Typography variant="h4" gutterBottom className="create-title">
+          Создать объявление
         </Typography>
-        <form onSubmit={handleSubmit} className="edit-form">
+        <form onSubmit={handleSubmit} className="create-form">
           <TextField
             label="Название"
             name="title"
@@ -108,8 +96,8 @@ const EditListing: React.FC = () => {
             margin="normal"
             variant="outlined"
           />
-          <Button type="submit" variant="contained" color="primary" className="edit-button">
-            Сохранить
+          <Button type="submit" variant="contained" color="primary" className="create-button">
+            Создать
           </Button>
         </form>
       </Paper>
@@ -117,4 +105,4 @@ const EditListing: React.FC = () => {
   );
 };
 
-export default EditListing;
+export default CreateListing;

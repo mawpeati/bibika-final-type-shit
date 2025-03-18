@@ -1,0 +1,30 @@
+.listing-card {
+    max-width: 345px;
+    margin: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    background-color: #fff;
+  }
+  
+  .listing-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .listing-card-media {
+    object-fit: cover;
+  }
+  
+  .listing-card-content {
+    padding: 16px;
+  }
+  
+  .listing-card-description {
+    margin-bottom: 8px;
+  }
+  
+  .listing-card-button {
+    width: 100%;
+    margin-top: 16px;
+    border-radius: 8px;
+  }
