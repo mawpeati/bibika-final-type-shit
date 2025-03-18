@@ -26,6 +26,14 @@ const Header: React.FC = () => {
         >
           Создать объявление
         </Button>
+        <Button
+          color="inherit"
+          component={Link}
+          to="/categories"
+          className="header-button create-category-button"
+        >
+          Создать категорию
+        </Button>
       </Toolbar>
     </AppBar>
   );
