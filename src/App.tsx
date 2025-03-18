@@ -8,6 +8,7 @@ import CategoryListings from './pages/CategoryListings';
 import ListingDetail from './pages/ListingDetail';
 import CreateListing from './pages/CreateListing';
 import EditListing from './pages/EditListing';
+import CreateCategory from './pages/CreateCategory';
 
 const theme = createTheme({
   palette: {
@@ -32,6 +33,7 @@ const App: React.FC = () => {
           <Route path="/listing/:listingId" element={<ListingDetail />} />
           <Route path="/create" element={<CreateListing />} />
           <Route path="/edit/:listingId" element={<EditListing />} />
+          <Route path="/categories" element={<CreateCategory />} />
         </Routes>
       </Router>
     </ThemeProvider>

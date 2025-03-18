@@ -1,0 +1,32 @@
+.category-manager-container {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+  
+  .category-manager-title {
+    color: #333;
+    margin-bottom: 24px;
+  }
+  
+  .category-manager-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .category-manager-button {
+    padding: 12px 0;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+  
+  .category-manager-item {
+    border-bottom: 1px solid #eee;
+  }
+  
+  .category-manager-edit-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }

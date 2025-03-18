@@ -11,7 +11,7 @@
   
   .header-button {
     transition: background-color 0.3s;
-    margin-left: 10px; 
+    margin-left: 10px;
   }
   
   .header-button:hover {
@@ -19,11 +19,21 @@
   }
   
   .create-button {
-    border: 1px solid #fff; 
+    border: 1px solid #fff;
     border-radius: 8px;
     padding: 6px 16px;
   }
   
   .create-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .create-category-button {
+    border: 1px solid #fff;
+    border-radius: 8px;
+    padding: 6px 16px;
+  }
+  
+  .create-category-button:hover {
     background-color: rgba(255, 255, 255, 0.3);
   }

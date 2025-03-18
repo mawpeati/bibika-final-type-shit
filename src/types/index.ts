@@ -8,6 +8,6 @@ export interface Category {
     title: string;
     description: string;
     price: number;
-    categoryName: string; 
+    categoryId: string;
     imageUrl: string;
   }
