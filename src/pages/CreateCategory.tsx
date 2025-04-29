@@ -12,7 +12,7 @@ const CreateCategory = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!name.trim()) return setError("Название категории не может быть пустым!");
+        if (!name.trim()) return setError("The category name cannot be empty!");
 
         setLoading(true);
         setError("");
@@ -20,9 +20,9 @@ const CreateCategory = () => {
         try {
             await api.post("categories.json", { name });
             setName("");
-            alert("Категория добавлена!");
+            alert("Category added!");
         } catch (err) {
-            setError("Ошибка при добавлении категории!");
+            setError("Error while adding the category!");
         } finally {
             setLoading(false);
         }
@@ -36,12 +36,12 @@ const CreateCategory = () => {
                 <TextField
                     sx={{marginBottom:1}}
                     type="text"
-                    label="Название категории"
+                    label="Category name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
                 <Button variant={'contained'} type="submit" disabled={loading}>
-                    {loading ? "Добавление..." : "Добавить"}
+                    {loading ? "Adding..." : "Add"}
                 </Button>
             </form>
             {error && <p style={{ color: "red" }}>{error}</p>}
