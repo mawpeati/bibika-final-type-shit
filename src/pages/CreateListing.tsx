@@ -21,7 +21,7 @@ const CreateListing: React.FC = () => {
       setCategories(data);
  
       if (data.length === 0) {
-        const initialCategories = ['Транспорт', 'Мебель', 'Техника'];
+        const initialCategories = ['Transport', 'Furniture', 'Utilities'];
         const promises = initialCategories.map((name) => createCategory(name));
         const newCategories = await Promise.all(promises);
         setCategories(newCategories);
@@ -43,7 +43,7 @@ const CreateListing: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.categoryId) {
-      alert('Пожалуйста, выберите категорию');
+      alert('Please choose a category');
       return;
     }
     try {
@@ -51,7 +51,7 @@ const CreateListing: React.FC = () => {
       navigate('/');
     } catch (error) {
       console.error('Error creating listing:', error);
-      alert('Ошибка при создании объявления.');
+      alert('Error creating post');
     }
   };
 
@@ -59,11 +59,11 @@ const CreateListing: React.FC = () => {
     <Container maxWidth="sm" className="create-container">
       <Paper className="create-paper">
         <Typography variant="h4" gutterBottom className="create-title">
-          Создать объявление
+          Create post
         </Typography>
         <form onSubmit={handleSubmit} className="create-form">
           <TextField
-            label="Название"
+            label="Title"
             name="title"
             value={form.title}
             onChange={handleChange}
@@ -73,7 +73,7 @@ const CreateListing: React.FC = () => {
             variant="outlined"
           />
           <TextField
-            label="Описание"
+            label="Description"
             name="description"
             value={form.description}
             onChange={handleChange}
@@ -85,7 +85,7 @@ const CreateListing: React.FC = () => {
             variant="outlined"
           />
           <TextField
-            label="Цена"
+            label="Price"
             name="price"
             type="number"
             value={form.price}
@@ -101,7 +101,7 @@ const CreateListing: React.FC = () => {
               name="categoryId"
               value={form.categoryId}
               onChange={handleChange}
-              label="Категория"
+              label="Category"
             >
               {categories.map((category) => (
                 <MenuItem key={category.id} value={category.id}>
@@ -111,7 +111,7 @@ const CreateListing: React.FC = () => {
             </Select>
           </FormControl>
           <TextField
-            label="Ссылка на картинку"
+            label="IMG Link"
             name="imageUrl"
             value={form.imageUrl}
             onChange={handleChange}
@@ -120,7 +120,7 @@ const CreateListing: React.FC = () => {
             variant="outlined"
           />
           <Button type="submit" variant="contained" color="primary" className="create-button">
-            Создать
+            Create
           </Button>
         </form>
       </Paper>

@@ -43,21 +43,21 @@ const EditListing: React.FC = () => {
       navigate(`/listing/${listingId}`);
     } catch (error) {
       console.error('Error updating listing:', error);
-      alert('Ошибка при обновлении объявления.');
+      alert('Error updating listing');
     }
   };
 
-  if (!form) return <Typography>Объявление не найдено</Typography>;
+  if (!form) return <Typography>Post not found</Typography>;
 
   return (
     <Container maxWidth="sm" className="edit-container">
       <Paper className="edit-paper">
         <Typography variant="h4" gutterBottom className="edit-title">
-          Редактировать объявление
+          Edit post
         </Typography>
         <form onSubmit={handleSubmit} className="edit-form">
           <TextField
-            label="Название"
+            label="Title"
             name="title"
             value={form.title}
             onChange={handleChange}
@@ -67,7 +67,7 @@ const EditListing: React.FC = () => {
             variant="outlined"
           />
           <TextField
-            label="Описание"
+            label="Description"
             name="description"
             value={form.description}
             onChange={handleChange}
@@ -79,7 +79,7 @@ const EditListing: React.FC = () => {
             variant="outlined"
           />
           <TextField
-            label="Цена"
+            label="Price"
             name="price"
             type="number"
             value={form.price}
@@ -90,7 +90,7 @@ const EditListing: React.FC = () => {
             variant="outlined"
           />
           <TextField
-            label="Категория"
+            label="Category"
             name="categoryName"
             value={form.categoryName}
             onChange={handleChange}
@@ -100,7 +100,7 @@ const EditListing: React.FC = () => {
             variant="outlined"
           />
           <TextField
-            label="Ссылка на картинку"
+            label="IMG Link"
             name="imageUrl"
             value={form.imageUrl}
             onChange={handleChange}
@@ -109,7 +109,7 @@ const EditListing: React.FC = () => {
             variant="outlined"
           />
           <Button type="submit" variant="contained" color="primary" className="edit-button">
-            Сохранить
+            Save
           </Button>
         </form>
       </Paper>

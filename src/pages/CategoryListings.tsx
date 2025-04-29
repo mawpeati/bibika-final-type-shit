@@ -27,7 +27,7 @@ const CategoryListings: React.FC = () => {
   return (
     <Container maxWidth="lg" className="category-container">
       <Typography variant="h4" gutterBottom className="category-title">
-        Объявления в категории: {categoryName}
+        Listing in category: {categoryName}
       </Typography>
       <Grid container spacing={3}>
         {listings.map((listing) => (

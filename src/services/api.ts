@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Category, Listing } from '../types';
 
-const BASE_URL = 'https://lalafo-sardar-default-rtdb.europe-west1.firebasedatabase.app';
+const BASE_URL = 'https://ernanbika-default-rtdb.firebaseio.com/';
 
 export const createCategory = async (name: string): Promise<Category> => {
   const response = await axios.post(`${BASE_URL}/categories.json`, { name });

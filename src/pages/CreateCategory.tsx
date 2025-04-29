@@ -30,7 +30,7 @@ const CreateCategory = () => {
 
     return (
         <div className="Container">
-            <h2>Создать категорию</h2>
+            <h2>Create category </h2>
             <div className="content">
             <form onSubmit={handleSubmit}>
                 <TextField

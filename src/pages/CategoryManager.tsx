@@ -44,7 +44,7 @@ const CategoryManager: React.FC = () => {
   return (
     <Container maxWidth="sm" className="category-manager-container">
       <Typography variant="h4" gutterBottom className="category-manager-title">
-        Управление категориями
+        Category settings
       </Typography>
 
       <form onSubmit={handleCreate} className="category-manager-form">
@@ -57,7 +57,7 @@ const CategoryManager: React.FC = () => {
           variant="outlined"
         />
         <Button type="submit" variant="contained" color="primary" className="category-manager-button">
-          Добавить
+          Add
         </Button>
       </form>
 
@@ -74,7 +74,7 @@ const CategoryManager: React.FC = () => {
                   size="small"
                 />
                 <Button type="submit" variant="contained" color="primary" size="small" sx={{ ml: 1 }}>
-                  Сохранить
+                  Save
                 </Button>
                 <Button
                   variant="outlined"
@@ -82,7 +82,7 @@ const CategoryManager: React.FC = () => {
                   onClick={() => setEditCategory(null)}
                   sx={{ ml: 1 }}
                 >
-                  Отмена
+                  Cancel
                 </Button>
               </form>
             ) : (

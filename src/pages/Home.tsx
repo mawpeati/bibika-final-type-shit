@@ -24,7 +24,7 @@ const Home: React.FC = () => {
   return (
     <Container maxWidth="lg" className="home-container">
       <Typography variant="h4" gutterBottom className="home-title">
-        Все объявления
+        All posts
       </Typography>
       <Grid container spacing={3}>
         {listings.map((listing) => (

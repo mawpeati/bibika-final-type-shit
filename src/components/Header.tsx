@@ -8,7 +8,7 @@ const Header: React.FC = () => {
     <AppBar position="static" className="header">
       <Toolbar>
         <Typography variant="h6" className="header-title">
-          Lalalo
+          Bibika
         </Typography>
         <Button
           color="inherit"
@@ -16,7 +16,7 @@ const Header: React.FC = () => {
           to="/"
           className="header-button"
         >
-          Все объявления
+          Posts
         </Button>
         <Button
           color="inherit"
@@ -24,7 +24,7 @@ const Header: React.FC = () => {
           to="/create"
           className="header-button create-button"
         >
-          Создать объявление
+          Create posts
         </Button>
         <Button
           color="inherit"
@@ -32,7 +32,7 @@ const Header: React.FC = () => {
           to="/categories"
           className="header-button create-category-button"
         >
-          Создать категорию
+          Create category
         </Button>
       </Toolbar>
     </AppBar>

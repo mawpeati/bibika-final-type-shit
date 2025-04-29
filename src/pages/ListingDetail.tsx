@@ -22,7 +22,7 @@ const ListingDetail: React.FC = () => {
     fetchListing();
   }, [listingId]);
 
-  if (!listing) return <Typography>Объявление не найдено</Typography>;
+  if (!listing) return <Typography>Post not found</Typography>;
 
   return (
     <Container maxWidth="md" className="detail-container">
@@ -42,7 +42,7 @@ const ListingDetail: React.FC = () => {
             {listing.description}
           </Typography>
           <Typography variant="h6" color="text.secondary" className="detail-category">
-            Категория: {listing.categoryName}
+            Category: {listing.categoryName}
           </Typography>
           <Typography variant="h5" color="primary" className="detail-price">
             ${listing.price}
@@ -53,7 +53,7 @@ const ListingDetail: React.FC = () => {
             onClick={() => navigate(`/edit/${listingId}`)}
             className="detail-button"
           >
-            Редактировать
+            Edit
           </Button>
         </CardContent>
       </Card>
